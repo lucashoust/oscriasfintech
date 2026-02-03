@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Fintech dos Crias</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7a3cff">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- LIBS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>Fintech dos Crias</h1>
+  <span>Controle financeiro com visão de futuro.</span>
+</header>
+
+<main>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard">
+    <div class="card">
+      <h3>💰 Total Investido</h3>
+      <p id="totalInvestido">R$ 0,00</p>
+    </div>
+
+    <div class="card">
+      <h3>💸 Total Recebido</h3>
+      <p id="totalRecebido">R$ 0,00</p>
+    </div>
+
+    <div class="card destaque">
+      <h3>📈 Lucro Líquido</h3>
+      <p id="lucroLiquido">R$ 0,00</p>
+    </div>
+
+    <div class="card">
+      <canvas id="grafico"></canvas>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO -->
+  <section id="formulario">
+    <div class="card">
+      <h2>Novo Empréstimo</h2>
+
+      <input id="nome" placeholder="Nome do cliente">
+      <input id="valor" type="number" placeholder="Valor emprestado (R$)">
+      <input id="juros" type="number" placeholder="Juros (%)">
+
+      <select id="tipo">
+        <option value="mensal">Parcelado Mensal</option>
+        <option value="semanal">Parcelado Semanal</option>
+        <option value="fixo">Pagamento Único</option>
+      </select>
+
+      <input id="parcelas" type="number" placeholder="Quantidade de parcelas">
+
+      <button onclick="salvarCliente()">Salvar Cliente</button>
+    </div>
+  </section>
+
+  <!-- CLIENTES -->
+  <section id="clientes"></section>
+
+</main>
+
+<script src="app.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+</body>
+</html>
