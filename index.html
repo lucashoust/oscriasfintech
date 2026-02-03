@@ -7,16 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7a3cff">
 
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icon.png">
-
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- LIBS -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -46,14 +41,17 @@
     </div>
 
     <div class="card">
-      <canvas id="grafico"></canvas>
+      <h3>📊 Visão Geral</h3>
+      <div class="grafico-container">
+        <canvas id="grafico"></canvas>
+      </div>
     </div>
   </section>
 
   <!-- FORMULÁRIO -->
   <section id="formulario">
     <div class="card">
-      <h2>Novo Empréstimo</h2>
+      <h3>Novo Empréstimo</h3>
 
       <input id="nome" placeholder="Nome do cliente">
       <input id="valor" type="number" placeholder="Valor emprestado (R$)">
@@ -77,12 +75,5 @@
 </main>
 
 <script src="app.js"></script>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
-</script>
-
 </body>
 </html>
